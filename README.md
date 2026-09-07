@@ -16,12 +16,12 @@ from ornax.hmc import ensemble_hmc
 n_dims = 10
 rng_key = jrng.key(10)
 
+
 def _log_like(x, sigma=1.25, mu=2):
     return -jnp.sum(
-        0.5 * (x - mu) ** 2 / sigma**2
-        + jnp.log(sigma)
-        + 0.5 * jnp.log(2.0 * jnp.pi)
+        0.5 * (x - mu) ** 2 / sigma**2 + jnp.log(sigma) + 0.5 * jnp.log(2.0 * jnp.pi)
     )
+
 
 chain, acc, loglike = ensemble_hmc(
     rng_key,
